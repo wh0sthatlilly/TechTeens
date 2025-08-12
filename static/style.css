@@ -1,0 +1,349 @@
+/* ===== Color Variables ===== */
+:root {
+  --primary: #03A9F4;
+  --secondary: #f4f4f4; /* Light gray for card/event backgrounds */
+  --light: #ffffff;
+  --bg: #ffffff;
+  --text: #444444;
+  --card-bg: #ffffff;
+  --nav-bg: var(--primary);
+  --footer-bg: #1e1e1e;
+}
+
+/* ===== Dark Mode Variables ===== */
+body.dark-mode {
+  --bg: #1e1e1e;
+  --text: #e0e0e0;
+  --card-bg: #2a2a2a;
+  --nav-bg: #121212;
+  --footer-bg: #000000;
+}
+
+/* ===== Base Styles ===== */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* ===== Navigation ===== */
+header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--nav-bg);
+  padding: 1rem 2rem;
+}
+
+header nav h1 {
+  color: var(--light);
+  font-size: 1.5rem;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: var(--light);
+  font-weight: 500;
+  padding: 0.5rem;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Dark Mode Toggle Button */
+#darkModeToggle {
+  background: none;
+  border: 2px solid var(--light);
+  color: var(--light);
+  padding: 0.3rem 0.6rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* Smooth transition for dark mode elements */
+nav, .banner, .card, footer, .brand__title, .brand__tag, .brand__logo {
+  transition: background-color 0.4s ease, color 0.4s ease, text-shadow 0.4s ease;
+}
+
+/* ===== Banner ===== */
+.banner {
+  background: url('../images/banner.jpg') center/cover no-repeat;
+  text-align: center;
+  padding: 5rem 2rem;
+}
+
+.brand__logo {
+  font-size: 3rem;
+  font-weight: bold;
+  color: var(--primary);
+  text-shadow: 0 0 10px var(--primary);
+}
+
+.brand__title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--text);
+  margin-top: 0.5rem;
+  text-shadow: 0 0 5px rgba(0,0,0,0.7);
+}
+
+.brand__tag {
+  font-size: 1.2rem;
+  color: var(--text);
+  opacity: 0.9;
+  text-shadow: 0 0 5px rgba(0,0,0,0.7);
+}
+
+/* ===== Sections ===== */
+section {
+  padding: 2rem;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  background: var(--card-bg);
+  color: var(--text);
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0,0,0,0.2);
+}
+
+/* ===== Footer ===== */
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: var(--footer-bg);
+  color: var(--light);
+}
+
+/* Founder Section */
+.founder {
+  display: flex;
+  align-items: flex-start; /* Align image and text from the top */
+  gap: 20px; /* Space between image and text */
+  margin-top: 2rem;
+}
+
+.founder-photo img {
+  width: 200px;       /* Make square */
+  height: 200px;      /* Same as width */
+  object-fit: cover;  /* Crop and center image without distortion */
+  border-radius: 0;   /* Keep sharp corners, change to 10px if you want slight rounding */
+  display: block;
+}
+
+.founder-text {
+  flex: 1; /* Take remaining space for text */
+}
+
+.event-info {
+  display: flex;
+  align-items: flex-start; /* Align top */
+  gap: 15px;               /* Space between image and text */
+}
+
+.event-info img {
+  width: 150px;        /* Square size, adjust as needed */
+  height: 150px;       /* Same as width */
+  object-fit: cover;   /* Crop image nicely */
+  border-radius: 0;    /* Sharp corners, or 8px for rounded */
+  flex-shrink: 0;      /* Prevent shrinking */
+}
+
+.event-info p {
+  flex: 1;             /* Let paragraph take remaining space */
+  margin: 0;
+}
+
+@media (max-width: 600px) {
+  .event-info {
+    flex-direction: column;
+  }
+
+  .event-info img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+
+.blog-post-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.blog-post-content img {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 0;
+  flex-shrink: 0;
+}
+
+.blog-post-text {
+  flex: 1;
+}
+
+/* Responsive stacking for small screens */
+@media (max-width: 600px) {
+  .blog-post-content {
+    flex-direction: column;
+  }
+
+  .blog-post-content img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  nav ul {
+    display: none;
+    flex-direction: column;
+    background-color: var(--nav-bg);
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 200px;
+    padding: 1rem;
+  }
+  nav ul.open {
+    display: flex;
+  }
+  .nav__toggle {
+    display: block;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--light);
+  }
+}
+
+@media (min-width: 769px) {
+  .nav__toggle {
+    display: none;
+  }
+}
+
+/* ===== Events ===== */
+.events-hero {
+  text-align: center;
+  padding: 3rem 1rem;
+  background-color: var(--primary);
+  color: var(--light);
+}
+
+.events-list {
+  max-width: 900px;
+  margin: auto;
+  padding: 2rem;
+}
+
+.event-card {
+  display: flex;
+  align-items: center;
+  background: var(--secondary);
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.event-date {
+  background: var(--primary);
+  color: var(--light);
+  padding: 1rem;
+  text-align: center;
+  border-radius: 8px;
+  margin-right: 1rem;
+  min-width: 60px;
+}
+
+.event-date .month {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  display: block;
+}
+
+.event-date .day {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.event-info h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.event-info p {
+  margin: 0.5rem 0 1rem;
+}
+
+/* ===== Modal ===== */
+.form-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.form-content {
+  width: 90%;
+  height: 90%;
+  background: var(--light);
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+}
+
+.form-content iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 2rem;
+  color: red;
+  cursor: pointer;
+  z-index: 10;
+}

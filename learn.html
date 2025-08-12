@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Learn &amp; Earn - TechTeens</title>
+  <link rel="stylesheet" href="static/style.css" />
+</head>
+<body>
+  <!-- Navigation -->
+  <header>
+    <nav>
+      <h1>TechTeens</h1>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="learn.html" class="active">Learn &amp; Earn</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="community.html">Community</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contact.html" class="btn-primary">Join Us</a></li>
+      </ul>
+      <button id="darkModeToggle">🌙</button>
+      <div class="nav__toggle" id="navToggle">&#9776;</div>
+    </nav>
+  </header>
+
+  <!-- Hero Banner -->
+  <section class="learn-hero">
+    <h2>Learn &amp; Earn</h2>
+    <p>Upgrade your skills, unlock opportunities, and start earning — even as a teen.</p>
+  </section>
+
+  <!-- Skill Categories -->
+  <section class="learn-categories">
+    <div class="card-grid">
+      <div class="card">
+        <h3>Coding</h3>
+        <p>Learn HTML, CSS, and JavaScript to build websites, apps, and interactive experiences.</p>
+        <a href="#" class="btn-secondary" onclick="openVideo('videos/coding.mp4')">Start Learning</a>
+      </div>
+      <div class="card">
+        <h3>Graphic Design</h3>
+        <p>Master tools like Canva and Figma to create stunning designs for clients or personal projects.</p>
+        <a href="#" class="btn-secondary" onclick="openVideo('videos/design.mp4')">Start Learning</a>
+      </div>
+      <div class="card">
+        <h3>Freelancing</h3>
+        <p>Discover how to get clients, set rates, and manage projects to earn from your skills.</p>
+        <a href="#" class="btn-secondary" onclick="openVideo('videos/freelancing.mp4')">Start Learning</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Video Modal -->
+  <div id="videoModal" class="video-modal" style="display:none;">
+    <span class="close-btn" onclick="closeVideo()">&times;</span>
+    <video id="lessonVideo" controls autoplay></video>
+  </div>
+
+  <!-- Call to Action -->
+  <section class="cta-section">
+    <h3>Ready to start your journey?</h3>
+    <p>Join TechTeens today and turn your skills into income.</p>
+    <a href="contact.html" class="btn-primary">Join Now</a>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 TechTeens. All rights reserved.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="static/script.js"></script>
+  <script>
+    function openVideo(videoSrc) {
+      const modal = document.getElementById('videoModal');
+      const video = document.getElementById('lessonVideo');
+      video.src = videoSrc;
+      modal.style.display = 'flex';
+    }
+
+    function closeVideo() {
+      const modal = document.getElementById('videoModal');
+      const video = document.getElementById('lessonVideo');
+      video.pause();
+      video.src = "";
+      modal.style.display = 'none';
+    }
+
+    // Close with ESC key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === "Escape") {
+        closeVideo();
+      }
+    });
+  </script>
+  <script src="static/validation.js"></script>
+</body>
+</html>
+
